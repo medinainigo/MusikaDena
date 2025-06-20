@@ -1,126 +1,106 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Espacio de Escucha</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Musika Dena eta Ez Dena</title>
+
+  <!-- Fuente personalizada ClanOT -->
   <style>
+    @font-face {
+      font-family: 'ClanOT';
+      src: url('./assets/fonts/ClanOT-Black.otf') format('opentype');
+      font-weight: bold;
+    }
+
+    :root {
+      --color-fondo: #ffffff;
+      --color-texto: #1e1e1e;
+      --color-pistacho: #e0ff4f;
+    }
+
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: #eee;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
     }
-    header, footer {
+
+    header {
+      background-color: var(--color-pistacho);
+      padding: 1rem;
       text-align: center;
-      padding: 1em;
-      background-color: #222;
     }
-    h1 {
-      font-size: 2em;
+
+    header h1 {
+      font-family: 'ClanOT', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
     }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1em;
-      padding: 1em;
+
+    .intro {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
-    .card {
-      background: #1c1c1c;
+
+    .artist-section {
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .artist-card {
+      background-color: white;
+      border: 1px solid var(--color-texto);
       border-radius: 12px;
-      padding: 1em;
+      margin: 1rem auto;
+      padding: 1rem;
+      max-width: 600px;
+    }
+
+    .artist-card img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: var(--color-pistacho);
+      color: var(--color-texto);
       text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      height: 150px;
-      object-fit: cover;
-    }
-    button {
-      margin-top: 0.5em;
-      background-color: #e62488;
-      color: white;
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .content-area {
-      display: none;
-      padding: 1em;
-    }
-    audio {
-      width: 100%;
-      margin-top: 1em;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
+
 <body>
+
   <header>
-    <h1>Espacio de Escucha</h1>
-    <p>Explora contenidos sonoros curados</p>
+    <h1>Musika Dena eta Ez Dena</h1>
   </header>
 
-  <main>
-    <section class="container" id="artistList">
-      <!-- Ejemplo de artista -->
-      <div class="card" onclick="openArtist('xedh')">
-        <img src="img/xedh.jpg" alt="XEDH">
-        <h3>XEDH (Miguel Ángel García)</h3>
-        <button>Explorar contenidos</button>
-      </div>
-      <div class="card" onclick="openArtist('verdeprato')">
-        <img src="img/verde_prato.jpg" alt="Verde Prato + Bronquio">
-        <h3>Verde Prato + Bronquio</h3>
-        <button>Explorar contenidos</button>
-      </div>
-    </section>
+  <section class="intro">
+    <p>
+      Se escucha con frecuencia que la base de la música está en la continuidad del tiempo, olvidando su asombrosa capacidad de transformar espacios.
+      Entonces, la pregunta es directa: ¿Dónde empieza y dónde termina la música?
+    </p>
+    <p>
+      Durante tres días de festival, la audiencia podrá disfrutar de artistas que atraviesan diferentes geografías, en un cruce de estilos y actitudes muy diversas.
+    </p>
+  </section>
 
-    <section class="content-area" id="xedh">
-      <h2>XEDH (Miguel Ángel García)</h2>
-      <p>Artista sonoro experimental. Explora límites entre ruido, cuerpo y espacio.</p>
-      <ul>
-        <li>🎧 <strong>"Xedhverse #04"</strong> – Podcast – <audio controls src="audio/xedh_podcast.mp3"></audio></li>
-        <li>🎙️ <strong>Entrevista en Ràdio Web MACBA</strong> – <audio controls src="audio/xedh_interview.mp3"></audio></li>
-        <li>🌐 <a href="https://xedh.org" target="_blank">Sitio oficial</a></li>
-      </ul>
-      <button onclick="goBack()">⬅ Volver</button>
-    </section>
-
-    <section class="content-area" id="verdeprato">
-      <h2>Verde Prato + Bronquio</h2>
-      <p>Fusión de folklore vasco y electrónica visceral.</p>
-      <ul>
-        <li>🎧 <strong>"Arin"</strong> – Track – <audio controls src="audio/verde_prato_arin.mp3"></audio></li>
-        <li>🎙️ <strong>Entrevista en Radio 3</strong> – <audio controls src="audio/verde_prato_radio3.mp3"></audio></li>
-        <li>🌐 <a href="https://verdeprato.bandcamp.com" target="_blank">Bandcamp</a></li>
-      </ul>
-      <button onclick="goBack()">⬅ Volver</button>
-    </section>
-  </main>
+  <section class="artist-section">
+    <div class="artist-card">
+      <h2>Artistas Destacados</h2>
+      <p>Muy pronto aquí podrás explorar a: Ale Hop, Verde Prato + Bronquio, Loula Yorke, Ryosuke Kiyasu y más...</p>
+    </div>
+  </section>
 
   <footer>
-    <p>Proyecto de mediateca – Escucha íntima y expandida</p>
+    Medialab Tabakalera — 2025
   </footer>
 
-  <script>
-    function openArtist(id) {
-      document.getElementById('artistList').style.display = 'none';
-      document.querySelectorAll('.content-area').forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function goBack() {
-      document.querySelectorAll('.content-area').forEach(sec => sec.style.display = 'none');
-      document.getElementById('artistList').style.display = 'grid';
-    }
-  </script>
 </body>
 </html>
