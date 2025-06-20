@@ -18,6 +18,8 @@
       --color-fondo: #ffffff;
       --color-texto: #1e1e1e;
       --color-pistacho: #e0ff4f;
+      --color-fucsia: #ff2e9e;
+      --color-gris: #3a3a3a;
     }
 
     body {
@@ -41,28 +43,38 @@
     }
 
     .intro {
+      background-color: #f0f0f0;
       padding: 2rem;
       max-width: 800px;
-      margin: auto;
+      margin: 2rem auto;
+      border-radius: 10px;
+      font-family: Georgia, serif;
     }
 
     .artist-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
       padding: 2rem;
-      background-color: #f9f9f9;
     }
 
-    .artist-card {
-      background-color: white;
-      border: 1px solid var(--color-texto);
+    .artist-banner {
+      background-color: var(--color-fucsia);
+      color: var(--color-gris);
       border-radius: 12px;
-      margin: 1rem auto;
       padding: 1rem;
-      max-width: 600px;
+      width: 280px;
+      text-align: center;
+      cursor: pointer;
+      font-family: 'ClanOT', sans-serif;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: transform 0.2s ease;
     }
 
-    .artist-card img {
-      max-width: 100%;
-      border-radius: 6px;
+    .artist-banner:hover {
+      transform: scale(1.05);
     }
 
     footer {
@@ -92,10 +104,15 @@
   </section>
 
   <section class="artist-section">
-    <div class="artist-card">
-      <h2>Artistas Destacados</h2>
-      <p>Muy pronto aquí podrás explorar a: Ale Hop, Verde Prato + Bronquio, Loula Yorke, Ryosuke Kiyasu y más...</p>
-    </div>
+    <a href="#" class="artist-banner">Verde Prato + Bronquio</a>
+    <a href="#" class="artist-banner">Exotic Sin (Kenichi Iwasa + Naima Nefertari)</a>
+    <a href="#" class="artist-banner">Loula Yorke</a>
+    <a href="#" class="artist-banner">Ale Hop</a>
+    <a href="#" class="artist-banner">Ryosuke Kiyasu</a>
+    <a href="#" class="artist-banner">Garazi Navas</a>
+    <a href="#" class="artist-banner">Fernando Carvalho</a>
+    <a href="#" class="artist-banner">Estanis Comella</a>
+    <a href="#" class="artist-banner">Xedh (Miguel Ángel García)</a>
   </section>
 
   <footer>
