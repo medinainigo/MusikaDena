@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espacio de Escucha</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #222;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+      padding: 1em;
+    }
+    .card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      padding: 1em;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: cover;
+    }
+    button {
+      margin-top: 0.5em;
+      background-color: #e62488;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .content-area {
+      display: none;
+      padding: 1em;
+    }
+    audio {
+      width: 100%;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Espacio de Escucha</h1>
+    <p>Explora contenidos sonoros curados</p>
+  </header>
+
+  <main>
+    <section class="container" id="artistList">
+      <!-- Ejemplo de artista -->
+      <div class="card" onclick="openArtist('xedh')">
+        <img src="img/xedh.jpg" alt="XEDH">
+        <h3>XEDH (Miguel Ángel García)</h3>
+        <button>Explorar contenidos</button>
+      </div>
+      <div class="card" onclick="openArtist('verdeprato')">
+        <img src="img/verde_prato.jpg" alt="Verde Prato + Bronquio">
+        <h3>Verde Prato + Bronquio</h3>
+        <button>Explorar contenidos</button>
+      </div>
+    </section>
+
+    <section class="content-area" id="xedh">
+      <h2>XEDH (Miguel Ángel García)</h2>
+      <p>Artista sonoro experimental. Explora límites entre ruido, cuerpo y espacio.</p>
+      <ul>
+        <li>🎧 <strong>"Xedhverse #04"</strong> – Podcast – <audio controls src="audio/xedh_podcast.mp3"></audio></li>
+        <li>🎙️ <strong>Entrevista en Ràdio Web MACBA</strong> – <audio controls src="audio/xedh_interview.mp3"></audio></li>
+        <li>🌐 <a href="https://xedh.org" target="_blank">Sitio oficial</a></li>
+      </ul>
+      <button onclick="goBack()">⬅ Volver</button>
+    </section>
+
+    <section class="content-area" id="verdeprato">
+      <h2>Verde Prato + Bronquio</h2>
+      <p>Fusión de folklore vasco y electrónica visceral.</p>
+      <ul>
+        <li>🎧 <strong>"Arin"</strong> – Track – <audio controls src="audio/verde_prato_arin.mp3"></audio></li>
+        <li>🎙️ <strong>Entrevista en Radio 3</strong> – <audio controls src="audio/verde_prato_radio3.mp3"></audio></li>
+        <li>🌐 <a href="https://verdeprato.bandcamp.com" target="_blank">Bandcamp</a></li>
+      </ul>
+      <button onclick="goBack()">⬅ Volver</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto de mediateca – Escucha íntima y expandida</p>
+  </footer>
+
+  <script>
+    function openArtist(id) {
+      document.getElementById('artistList').style.display = 'none';
+      document.querySelectorAll('.content-area').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function goBack() {
+      document.querySelectorAll('.content-area').forEach(sec => sec.style.display = 'none');
+      document.getElementById('artistList').style.display = 'grid';
+    }
+  </script>
+</body>
+</html>
