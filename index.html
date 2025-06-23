@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="eu">
 <head>
   <meta charset="UTF-8" />
@@ -43,23 +43,25 @@
     .background-animation::after {
       content: '';
       position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, #ff7de9, transparent);
+      background-image: radial-gradient(circle at center, #e0ff4f, #ff2e9e);
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+      );
+      width: 250px;
+      height: 250px;
       animation: bloom 15s infinite ease-in-out;
+      opacity: 0.4;
     }
 
     .background-animation::after {
-      background: radial-gradient(circle, #ffe87a, transparent);
-      width: 400px;
-      height: 400px;
       top: 60%;
       left: 70%;
       animation-delay: 3s;
     }
 
     .background-animation::before {
-      width: 300px;
-      height: 300px;
       top: 20%;
       left: 10%;
     }
@@ -154,12 +156,12 @@
 
   <div class="intro-box">
     <h1>
-      <img src="logo-tabakalera.png" alt="Tabakalera Logo" />
+      <img src="Logo_Tabakalera_konposatua_EU.png" alt="Tabakalera Logo" />
       Musika Dena eta Ez Dena
     </h1>
     <div class="intro-text">
       <p class="eu">Musikaren oinarria denboraren jarraian dagoela maiz entzuten da, espazioak eraldatzeko duen gaitasun harrigarria ahaztuz. Galdera, orduan, zuzena da: Non hasten da eta non bukatzen da musika?</p>
-      <p class="es">Se escucha con frecuencia que la base de la música está en la continuidad del tiempo, olvidando su asombrosa capacidad de transformar espacios. Entonces, la pregunta es directa: ¿Dónde empieza y dónde termina la música?</p>
+      <p class="es">*Se escucha con frecuencia que la base de la música está en la continuidad del tiempo, olvidando su asombrosa capacidad de transformar espacios. Entonces, la pregunta es directa: ¿Dónde empieza y dónde termina la música?*</p>
     </div>
   </div>
 
@@ -178,6 +180,8 @@
     <div class="banner">+ info</div>
   </div>
 </body>
+</html>
+
 </html>
 
   }
