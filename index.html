@@ -1,48 +1,184 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musika Dena eta Ez Dena</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="ClanOT-Black.otf" as="font" type="font/otf" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'ClanOT';
+      src: url('ClanOT-Black.otf') format('opentype');
+    }
 
-.background-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-  background-color: var(--color-fondo);
-}
+    :root {
+      --color-pistacho: #e0ff4f;
+      --color-fucsia: #ff2e9e;
+      --color-fondo: #951b97;
+      --color-texto: #000000;
+      --color-secundario: #666666;
+    }
 
-.background-animation::before,
-.background-animation::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 46, 158, 0.15), transparent);
-  animation: float 12s infinite ease-in-out;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+    }
 
-.background-animation::after {
-  background: radial-gradient(circle, rgba(224, 255, 79, 0.2), transparent);
-  width: 400px;
-  height: 400px;
-  top: 60%;
-  left: 70%;
-  animation-delay: 4s;
-}
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      background-color: var(--color-fondo);
+    }
 
-.background-animation::before {
-  width: 300px;
-  height: 300px;
-  top: 20%;
-  left: 10%;
-}
+    .background-animation::before,
+    .background-animation::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff7de9, transparent);
+      animation: bloom 15s infinite ease-in-out;
+    }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-40px) scale(1.05);
-  }
-  100% {
-    transform: translateY(0px) scale(1);
+    .background-animation::after {
+      background: radial-gradient(circle, #ffe87a, transparent);
+      width: 400px;
+      height: 400px;
+      top: 60%;
+      left: 70%;
+      animation-delay: 3s;
+    }
+
+    .background-animation::before {
+      width: 300px;
+      height: 300px;
+      top: 20%;
+      left: 10%;
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      50% {
+        transform: scale(1.2) rotate(180deg);
+      }
+      100% {
+        transform: scale(1) rotate(360deg);
+      }
+    }
+
+    .intro-box {
+      background-color: var(--color-pistacho);
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-family: 'Georgia', serif;
+    }
+
+    .intro-box h1 {
+      font-family: 'ClanOT', sans-serif;
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .intro-box h1 img {
+      height: 40px;
+    }
+
+    .playlist-label {
+      background-color: var(--color-pistacho);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 1rem 2rem;
+      font-family: 'ClanOT', sans-serif;
+      font-weight: bold;
+      border-radius: 0.5rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-text .eu {
+      font-weight: bold;
+    }
+
+    .intro-text .es {
+      font-style: italic;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .banner {
+      padding: 1.2rem;
+      background-color: var(--color-pistacho);
+      color: var(--color-texto);
+      border-radius: 1.5rem;
+      text-align: center;
+      font-family: 'ClanOT', sans-serif;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+    }
+
+    .banner:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-animation"></div>
+
+  <div class="intro-box">
+    <h1>
+      <img src="logo-tabakalera.png" alt="Tabakalera Logo" />
+      Musika Dena eta Ez Dena
+    </h1>
+    <div class="intro-text">
+      <p class="eu">Musikaren oinarria denboraren jarraian dagoela maiz entzuten da, espazioak eraldatzeko duen gaitasun harrigarria ahaztuz. Galdera, orduan, zuzena da: Non hasten da eta non bukatzen da musika?</p>
+      <p class="es">Se escucha con frecuencia que la base de la música está en la continuidad del tiempo, olvidando su asombrosa capacidad de transformar espacios. Entonces, la pregunta es directa: ¿Dónde empieza y dónde termina la música?</p>
+    </div>
+  </div>
+
+  <div class="playlist-label">Playlist</div>
+
+  <div class="button-grid">
+    <div class="banner">Verde Prato + Bronquio</div>
+    <div class="banner">Exotic Sin</div>
+    <div class="banner">Loula Yorke</div>
+    <div class="banner">Ale Hop</div>
+    <div class="banner">Ryosuke Kiyasu</div>
+    <div class="banner">Garazi Navas</div>
+    <div class="banner">Fernando Carvalho</div>
+    <div class="banner">Estanis Comella</div>
+    <div class="banner">Miguel Ángel García aka Xedh</div>
+    <div class="banner">+ info</div>
+  </div>
+</body>
+</html>
+
   }
 }
