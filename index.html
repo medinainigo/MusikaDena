@@ -44,17 +44,17 @@
       content: '';
       position: absolute;
       border-radius: 50%;
-      background: radial-gradient(circle, #ff7de9, transparent);
-      animation: bloom 15s infinite ease-in-out;
+      background: radial-gradient(circle, rgba(255, 46, 158, 0.15), transparent);
+      animation: float 12s infinite ease-in-out;
     }
 
     .background-animation::after {
-      background: radial-gradient(circle, #ffe87a, transparent);
+      background: radial-gradient(circle, rgba(224, 255, 79, 0.2), transparent);
       width: 400px;
       height: 400px;
       top: 60%;
       left: 70%;
-      animation-delay: 3s;
+      animation-delay: 4s;
     }
 
     .background-animation::before {
@@ -64,15 +64,15 @@
       left: 10%;
     }
 
-    @keyframes bloom {
+    @keyframes float {
       0% {
-        transform: scale(1) rotate(0deg);
+        transform: translateY(0px) scale(1);
       }
       50% {
-        transform: scale(1.2) rotate(180deg);
+        transform: translateY(-40px) scale(1.05);
       }
       100% {
-        transform: scale(1) rotate(360deg);
+        transform: translateY(0px) scale(1);
       }
     }
 
@@ -88,12 +88,11 @@
     .intro-box h1 {
       font-family: 'ClanOT', sans-serif;
       font-size: 3rem;
-      text-align: center;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 1rem;
       width: 100%;
+      justify-content: space-between;
     }
 
     .intro-box h1 img {
@@ -111,7 +110,7 @@
     }
 
     .intro-text p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       font-size: 1.2rem;
     }
 
@@ -170,7 +169,7 @@
 
   <div class="intro-box">
     <h1>
-      <img src="logo-tabakalera.png" alt="Tabakalera Logo" />
+      <img src="img/logo-tabakalera.png" alt="Tabakalera Logo" />
       Musika Dena eta Ez Dena
     </h1>
     <div class="intro-text">
@@ -195,8 +194,9 @@
   </div>
 
   <footer>
-    <span>Medialab Tabakalera - Talde Irekiak &nbsp;&nbsp;&nbsp; 2025</span>
-    <span>CC BY-SA 4.0</span>
+    <div>Medialab Tabakalera - Talde Irekiak 2024</div>
+    <div>CC BY-SA 4.0</div>
   </footer>
 </body>
 </html>
+
